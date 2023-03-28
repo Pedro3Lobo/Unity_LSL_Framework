@@ -18,11 +18,14 @@ public class LSLController : MonoBehaviour
 
     void Start()
     {
-        data = new float[Channels];
+        data = new float[ChannelsNames.Count];
         // create a new stream info and outlet
-        StreamInfo streamInfo = new StreamInfo(Stream_Name, "MyStreamType", Channels, SampleSize, channel_format_t.cf_float32, "myStreamID");
+        StreamInfo streamInfo = new StreamInfo(Stream_Name, "MyStreamType", ChannelsNames.Count, SampleSize, channel_format_t.cf_float32, "myStreamID");
 
-
+        foreach (string Channel in ChannelsNames) { 
+            streamInfo.desc().append_child("channel").append_child_value("name", Channel);
+            streamInfo.desc().append_child("channel").append_child_value("type", "float32");
+        }
 
 
         outlet = new StreamOutlet(streamInfo);
@@ -40,7 +43,7 @@ public class LSLController : MonoBehaviour
 
     private void Add_Value()
     {
-        for(int p = 0; p != Channels; p++)
+        for(int p = 0; p != ChannelsNames.Count; p++)
         {
             switch (p)
             {

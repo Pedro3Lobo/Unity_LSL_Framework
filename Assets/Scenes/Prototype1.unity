@@ -372,7 +372,8 @@ MonoBehaviour:
   Stream_Name: UnityStream
   SampleSize: 1000
   ChannelsNames:
-  - c1
+  - C1
+  - C2
   Modifier: 2
   Channels: 2
 --- !u!114 &1774369229
@@ -389,7 +390,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Stream_Name: UnityStream2
   SampleSize: 2000
-  ChannelsNames: []
+  ChannelsNames:
+  - U1
+  - U2
+  - U3
   Modifier: 2
   Channels: 3
 --- !u!1 &1898918271
