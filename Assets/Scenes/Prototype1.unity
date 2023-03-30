@@ -335,6 +335,7 @@ GameObject:
   - component: {fileID: 1774369227}
   - component: {fileID: 1774369228}
   - component: {fileID: 1774369229}
+  - component: {fileID: 1774369230}
   m_Layer: 0
   m_Name: LSL_Controller
   m_TagString: Untagged
@@ -364,7 +365,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1774369226}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9390b08c0501bd54ca02342aa7bb79b3, type: 3}
   m_Name: 
@@ -383,7 +384,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1774369226}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9390b08c0501bd54ca02342aa7bb79b3, type: 3}
   m_Name: 
@@ -396,6 +397,21 @@ MonoBehaviour:
   - U3
   Modifier: 2
   Channels: 3
+--- !u!114 &1774369230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1774369226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b04abe3bf678bf4fa5e17759bf810c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StreamName: Unity.ExampleStream
+  StreamType: Unity.StreamType
+  StreamId: MyStreamID-Unity1234
 --- !u!1 &1898918271
 GameObject:
   m_ObjectHideFlags: 0
