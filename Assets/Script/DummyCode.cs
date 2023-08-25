@@ -8,6 +8,20 @@ public class DummyCode : MonoBehaviour
     public static float x = 0, y = 0, z = 0;
     private float i = 0;
     private bool up_down_funk;
+    public LSLStreamer StreamFloat;
+    [SerializeField] public const float DesiredFrequency = 1000f;
+    private const float FixedDeltaTime = 1f / DesiredFrequency;
+
+    private void Awake()
+    {
+        // Set the fixedDeltaTime to the desired frequency
+        Time.fixedDeltaTime = FixedDeltaTime;
+    }
+
+    private void Start()
+    {
+        StreamFloat.StartStream();
+    }
 
     // Update is called once per frame
     void FixedUpdate()
@@ -15,7 +29,7 @@ public class DummyCode : MonoBehaviour
         if (up_down_funk) {
             //Debug.Log("Flag 1 : UP");
 
-            if (i < 10)
+            if (i < 1)
             {
                 i += Time.deltaTime;
                 x = i;
@@ -44,5 +58,11 @@ public class DummyCode : MonoBehaviour
         y = -x;
         z = 2 + x;
         i+= Time.deltaTime;
+
+        float[] sdsd = new float[] {y, x, z, x/3, y, z, z, y, 5, 7};
+
+        StreamFloat.StreamData(sdsd);
+
+
     }
 }
