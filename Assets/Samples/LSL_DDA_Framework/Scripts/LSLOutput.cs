@@ -1,10 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using LSL;
 using UnityEngine.UI;
 using TMPro;
@@ -13,7 +9,7 @@ public class LSLOutput : MonoBehaviour
 {
     private StreamOutlet outlet;
     private float[] currentSample;
-    private bool Start_Stop = false;
+    public static bool Start_Stop = false;
 
     public Image Signal;
     public Sprite on;
@@ -59,11 +55,8 @@ public class LSLOutput : MonoBehaviour
         StreamId = inputID.text;
     }
 
-    // FixedUpdate is a good hook for objects that are governed mostly by physics (gravity, momentum).
-    // Update might be better for objects that are governed by code (stimulus, event).
     void FixedUpdate()
     {
-
         if (Start_Stop)
         {
             Vector3 pos = gameObject.transform.position;
@@ -81,7 +74,6 @@ public class LSLOutput : MonoBehaviour
                 }
                 else
                 {
-
                     Start_Stop = false;
                     break;
                 }

@@ -18,6 +18,8 @@ public class Prefer : MonoBehaviour
     private TMP_InputField inputType;
     [SerializeField]
     private TMP_InputField inputID;
+    [SerializeField]
+    private TMP_InputField inputReceive;
 
     private const string ToggleKey = "AutoPlay";
     public static bool autoplay_on = false;
@@ -41,6 +43,7 @@ public class Prefer : MonoBehaviour
         PlayerPrefs.SetString("StreamName", inputName.text);
         PlayerPrefs.SetString("StreamType", inputType.text);
         PlayerPrefs.SetString("StreamID", inputID.text);
+        PlayerPrefs.SetString("StreamReceive", inputReceive.text);
         PlayerPrefs.SetInt(ToggleKey, autoplay.isOn ? 1 : 0);
         
 
@@ -80,6 +83,11 @@ public class Prefer : MonoBehaviour
             inputID.text = PlayerPrefs.GetString("StreamID");
         }
 
+        if (PlayerPrefs.HasKey("StreamReceive"))
+        {
+            inputReceive.text = PlayerPrefs.GetString("StreamReceive");
+        }
+
         // Load the saved toggle value
         if (PlayerPrefs.HasKey(ToggleKey))
         {
@@ -93,6 +101,7 @@ public class Prefer : MonoBehaviour
         {
             if(PlayerPrefs.HasKey(key))
                 inputs[i].isOn = PlayerPrefs.GetInt(key) == 1;
+
             i++;
         }
         i = 0;

@@ -2,10 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using LSL;
+using TMPro;
 
 public class LSLInput : MonoBehaviour
 {
-    public string StreamType = "PyflowStream";
+    [SerializeField]
+    private TMP_InputField inputReceive;
+    private string StreamType = "PyflowStream";
     public float scaleInput = 0.1f;
 
     StreamInfo[] streamInfos;
@@ -16,10 +19,17 @@ public class LSLInput : MonoBehaviour
     private int channelCount = 0;
     private XMLElement channelgroup;
 
+    private void Start()
+    {
+        StreamType = inputReceive.text;
+    }
+
+
+
     void Update()
     {
 
-        if (streamInlet == null)
+        if ((streamInlet == null) && (LSLOutput.Start_Stop))
         {
             streamInfos = LSL.LSL.resolve_stream("type", StreamType, 1, 0.0);
             if (streamInfos.Length > 0)
@@ -28,9 +38,10 @@ public class LSLInput : MonoBehaviour
                 channelCount = streamInlet.info().channel_count();
                 channels = new string[channelCount];
                 channelgroup = streamInlet.info().desc().child("channels").child("channel");
+
                 for (int i = 0; i < channelCount; i++)
                 {
-                    Debug.Log("6575756->channel name:"+ channelgroup.child_value("label") + " |loop i="+i);
+                    //Debug.Log("6575756->channel name:"+ channelgroup.child_value("label") + " |loop i="+i);
                     channels[i]=channelgroup.child_value("label");
                     channelgroup=channelgroup.next_sibling();
                 }

@@ -152,12 +152,12 @@ public class GetPublicVariables : MonoBehaviour
             if (tog.isOn)
             {
                 Number_Input++;
-                Debug.Log("Number Of Inputs: "+Number_Input);
+                //Debug.Log("Number Of Inputs: "+Number_Input);
             }
             else
             {
                 Number_Output++;
-                Debug.Log("Number Of Outputs: " + Number_Output);
+                //Debug.Log("Number Of Outputs: " + Number_Output);
             }
         }
     }
