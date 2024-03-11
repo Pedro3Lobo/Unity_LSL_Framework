@@ -111,16 +111,20 @@ public class LSLOutput : MonoBehaviour
         if (GetPublicVariables.Number_Input != 0)
         {
             Start_Stop = true;
-            int i = 0;
+            int i = 1;
             Signal.sprite = on;
             StreamInfo streamInfo = new StreamInfo(StreamName, StreamType, GetPublicVariables.Number_Input, DesiredFrequency, LSL.channel_format_t.cf_float32);
             XMLElement chans = streamInfo.desc().append_child("channels");
             foreach (string Variab in GetPublicVariables.FieldsName)
             {
-                if (PlayerPrefs.GetInt("In" + i) == 1)
+                Debug.Log(i+"->" + Variab);
+                if (PlayerPrefs.GetInt("i" + i) == 1)
                 {
                     chans.append_child("channel").append_child_value("label", Variab);
+                    Debug.Log("->" + Variab);
+
                 }
+               
                 i++;
             }
             Console.WriteInConsole("--------------------------------------------------------");
