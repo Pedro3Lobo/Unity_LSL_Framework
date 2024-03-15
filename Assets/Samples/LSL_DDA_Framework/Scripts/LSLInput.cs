@@ -29,7 +29,7 @@ public class LSLInput : MonoBehaviour
     void Update()
     {
 
-        if (streamInlet == null)
+        if ((streamInlet == null) && (LSLOutput.Start_Stop))
         {
             streamInfos = LSL.LSL.resolve_stream("type", StreamType, 1, 0.0);
             if (streamInfos.Length > 0)
